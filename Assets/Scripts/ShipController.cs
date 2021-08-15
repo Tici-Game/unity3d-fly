@@ -70,7 +70,8 @@ public class ShipController : MonoBehaviour
     IEnumerator ShootIt()
     {
         beingShoot = true;
-        yield return new WaitForSeconds(0.1f);
+        // 5 bullet / second
+        yield return new WaitForSeconds(0.2f);
         Shoot();
         beingShoot = false;
     }
@@ -92,8 +93,8 @@ public class ShipController : MonoBehaviour
                 shipPosition = touch.position;
                 break;
             case TouchPhase.Moved:
-                xDir = (touch.position.x - shipPosition.x) / 20f;
-                yDir = (touch.position.y - shipPosition.y) / 20f;
+                xDir = Mathf.Clamp((touch.position.x - shipPosition.x) / 20f, -0.5f, 0.5f);
+                yDir = Mathf.Clamp((touch.position.y - shipPosition.y) / 20f, -0.5f, 0.5f);
                 shipPosition = touch.position;
                 break;
         }

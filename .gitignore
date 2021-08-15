@@ -1,6 +1,7 @@
 /Temp
 /Logs
 /obj
+/Library/Artifacts
 /Library/PackageCache
 /Library/ShaderCache
 /Library/StateCache
